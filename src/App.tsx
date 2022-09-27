@@ -1,5 +1,6 @@
 import logo from './utils/images/logo.svg';
 import plus from './utils/images/plus.svg';
+import clipboard from './utils/images/clipboard.svg';
 import './global.css';
 import styles from './App.module.css';
 
@@ -34,8 +35,10 @@ function App() {
           </div>
         </div>
 
+        <div className={styles.divisor}></div>
+
         <div className={styles.tasksContent}>
-          <img src="" alt="" />
+          <img src={clipboard} alt="clipboard icon" />
           <p>Você ainda não tem tarefas cadastradas</p>
           <p>Crie tarefas e organize seus itens a fazer</p>
         </div>

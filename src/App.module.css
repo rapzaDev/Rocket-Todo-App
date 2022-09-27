@@ -28,6 +28,7 @@ main {
     gap: .5rem;
 
     margin-top: -1.6875rem;
+    margin-bottom: 4rem;
 }
 
 .newTask input[type='text'] {
@@ -39,10 +40,6 @@ main {
     border: 1px solid var(--gray-700);
     background-color: var(--gray-500);
     color: var(--gray-300);
-}
-
-.newTask input[type='text']:focus {
-    outline: 2px solid var(--purple-dark);
 }
 
 .newTask button[type='button'] {
@@ -65,7 +62,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 46rem;
 }
 
 .tasksInfo .createdTasks {
@@ -76,13 +73,88 @@ main {
 }
 
 .tasksInfo .createdTasks > span {
-    font-weight: bold;
+    font-weight: 700;
     font-size: 0.875rem;
     color: var(--blue);
+}
+
+.tasksInfo .createdTasks > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 1.5625rem;
+    height: 1,1875rem;
+
+    background-color: var(--gray-400);
+    border-radius: 999px;
+}
+
+.tasksInfo .createdTasks > div span {
+    color: var(--gray-200);
+    font-weight: 700;
+    font-size: 12px;
 }
 
 .tasksInfo .concludedTasks {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: .5rem;
 }
+
+.tasksInfo .concludedTasks > span {
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--purple);
+}
+
+.tasksInfo .concludedTasks > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 1.5625rem;
+    height: 1,1875rem;
+
+    background-color: var(--gray-400);
+    border-radius: 999px;
+}
+
+.tasksInfo .concludedTasks > div span {
+    color: var(--gray-200);
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.divisor {
+    margin-top: 1.5rem;
+    width: 46rem;
+    height: 1px;
+    background-color: var(--gray-400);
+}
+
+.tasksContent {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tasksContent > img {
+    margin-bottom: 1rem;
+}
+
+.tasksContent > p { 
+    line-height: 1.4;
+    font-weight: 700;
+    color: var(--gray-300);
+}
+
+.tasksContent p + p {
+    line-height: 1.4;
+    font-weight: 400;
+    color: var(--gray-300);
+}
+
