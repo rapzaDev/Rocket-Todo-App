@@ -33,3 +33,7 @@ body {
   background: var(--gray-600);
 }
 
+input, button, span, p {
+  font-family: 'Inter', sans-serif;
+}
+
