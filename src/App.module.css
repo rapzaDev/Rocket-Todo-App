@@ -42,6 +42,10 @@ main {
     color: var(--gray-300);
 }
 
+.newTask input[type='text']:focus {
+    outline: 1px solid var(--blue-dark);
+}
+
 .newTask button[type='button'] {
     display: flex;
     align-items: center;
@@ -56,6 +60,13 @@ main {
 
     background-color: var(--blue-dark);
     color: var(--gray-100);
+    cursor: pointer;
+}
+
+.newTask button[type='button']:disabled {
+    background-color: var(--blue-dark);
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
 .tasksInfo {
@@ -134,7 +145,7 @@ main {
     background-color: var(--gray-400);
 }
 
-.tasksContent {
+.TasksContent {
     margin-top: 4rem;
     display: flex;
     flex-direction: column;
@@ -142,17 +153,17 @@ main {
     justify-content: center;
 }
 
-.tasksContent > img {
+.TasksContent > img {
     margin-bottom: 1rem;
 }
 
-.tasksContent > p { 
+.TasksContent > p { 
     line-height: 1.4;
     font-weight: 700;
     color: var(--gray-300);
 }
 
-.tasksContent p + p {
+.TasksContent p + p {
     line-height: 1.4;
     font-weight: 400;
     color: var(--gray-300);
