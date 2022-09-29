@@ -13,9 +13,7 @@ export type Tasks = {
 
 function App() {
   const [tasks, setTasks] = useState<Tasks[]>([]);
-  const [task, setTask] = useState<Tasks>({
-    content: '',
-  } as Tasks);
+  const [inputValue, setInputValue] = useState<string>('');
 
   const [createdTasksNumber, setCreatedTasksNumber] = useState(0);
   const [concludedTasksNumber, setConcludedTasksNumber] = useState(0);
@@ -55,21 +53,26 @@ function App() {
    * de nova tarefa e and set the new content of the task. 
    */
   function getTaskContent(e: React.ChangeEvent<HTMLInputElement>) {
-    const newTask: Tasks = {
-      id: `${tasks.length} + ${e.target.value}`,
-      content: e.target.value,
-    }
-
-    setTask(newTask);
+    setInputValue(e.target.value);
   }
 
   function addNewTask() {
-    const newTasks = [...tasks, task];
+
+    const newTask: Tasks = {
+      id: `${tasks.length} + ${inputValue}`,
+      content: inputValue,
+    }
+
+    const newTasks = [...tasks, newTask];
     setTasks(newTasks);
+
+    setCreatedTasksNumber(prev => prev + 1);
+
+    setInputValue('');
   }
 
   const emptyTaskContent = () => {
-    if (task.content === ' ' || task.content === '\n' || task.content?.length === 0) return true;
+    if (inputValue === ' ' || inputValue === '\n' || inputValue.length === 0) return true;
     else return false;
   }
 
@@ -89,7 +92,7 @@ function App() {
           <input
             type="text"
             placeholder='Adicione uma nova tarefa'
-            value={task.content}
+            value={inputValue}
             onChange={(e) => getTaskContent(e)}
           />
           <button
