@@ -18,6 +18,10 @@ function App() {
   const [createdTasksNumber, setCreatedTasksNumber] = useState(0);
   const [concludedTasksNumber, setConcludedTasksNumber] = useState(0);
 
+  useEffect(() => {
+    console.log(concludedTasksNumber);
+  }, [concludedTasksNumber])
+
   /**
    * 
    * @description If the tasks array state is empty, it will show
@@ -42,7 +46,9 @@ function App() {
               id={task.id}
               content={task.content}
               tasks={tasks}
-              setTasks={setTasks} />
+              setTasks={setTasks}
+              setConcludedTasksNumber={setConcludedTasksNumber}
+            />
           ))}
         </div>
       );
@@ -111,7 +117,7 @@ function App() {
 
           <div className={styles.concludedTasks}>
             <span>Concluidas</span>
-            <div className={styles.doneTasksNumberWrapper}><span>{concludedTasksNumber}</span></div>
+            <div className={styles.doneTasksNumberWrapper}><span>{concludedTasksNumber} de {createdTasksNumber}</span></div>
           </div>
         </div>
 

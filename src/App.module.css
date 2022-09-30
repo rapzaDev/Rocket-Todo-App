@@ -124,9 +124,8 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    width: 1.5625rem;
-    height: 1,1875rem;
+    padding: .5rem;
+    height: 1.1875rem;
 
     background-color: var(--gray-400);
     border-radius: 999px;

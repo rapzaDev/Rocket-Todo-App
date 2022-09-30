@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Trash, Check } from 'phosphor-react';
 import { Tasks } from '../../App';
 import styles from './task.module.css';
@@ -8,13 +8,22 @@ interface ITask {
     content: string;
     tasks: Tasks[];
     setTasks: React.Dispatch<React.SetStateAction<Tasks[]>>;
+    setConcludedTasksNumber: React.Dispatch<React.SetStateAction<number>>;
 }
 
-function Task({ id, content, tasks, setTasks }: ITask) {
+function Task({ id, content, tasks, setTasks, setConcludedTasksNumber }: ITask) {
     const [isChecked, setIsChecked] = useState(false);
 
+    useEffect(() => {
+        if (isChecked) setConcludedTasksNumber(prev => prev + 1);
+        else setConcludedTasksNumber(prev => {
+            if (prev === 0) return 0;
+            else return prev - 1;
+        })
+    }, [isChecked]);
+
     function changeTaskCheck() {
-        setIsChecked(prev => !prev)
+        setIsChecked(prev => !prev);
     }
 
     function deleteTask() {
